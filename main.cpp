@@ -2,13 +2,17 @@
 #include "test.h"
 #include <windows.h>
 #include "Date1.h"
+#include "Date2.h"
 using namespace std;
 
 int main()
 {
     setlocale(LC_ALL, "RU");
     test a;
-    Date1 date1;
+    Date1 dateFirst1;
+    Date1 dateSecond1;
+    Date2 dateFirst2;
+    Date2 dateSecond2;
     double firstD, secondD, thirdD;
     int firstI, secondI, thirdI;
     cout << "Введите номер задания: ";
@@ -32,25 +36,25 @@ int main()
             cout << "------3------" << endl;
             cout << "1 значение: " && cin >> firstI;
             cout << "2 значение: " && cin >> secondI;
-            cout << a.DoubleInt(firstI, secondI) << endl;
+            a.DoubleInt(firstI, secondI);
             break;
         case 4:
             cout << "------4------" << endl;
             cout << "Номинал: " && cin >> firstI;
             cout << "Количество: " && cin >> secondI;
-            cout << a.MoneyCounter(firstI, secondI) << endl;
+            a.MoneyCounter(firstI, secondI);
             break;
         case 5:
             cout << "------5------" << endl;
             cout << "Цена товара: " && cin >> firstD;
             cout << "Количество: " && cin >> firstI;
-            cout << a.PriceOfGood(firstD, firstI) << endl;
+            a.PriceOfGood(firstD, firstI);
             break;
         case 6:
             cout << "------6------" << endl;
             cout << "Общая калорийность: " && cin >> firstI;
             cout << "Общая масса: " && cin >> firstD;
-            cout << a.ProductСalories(firstI, firstD) << endl;
+            a.ProductСalories(firstI, firstD);
             break;
         case 7:
             cout << "------7------" << endl;
@@ -72,7 +76,7 @@ int main()
             cout << "------9------" << endl;
             cout << "Часы: " && cin >> firstI;
             cout << "Минуты: " && cin >> secondI;
-            cout << a.HoursToMinutes(firstI, secondI) << endl;
+            a.HoursToMinutes(firstI, secondI);
             break;
         case 10:
             cout << "------10------" << endl;
@@ -84,13 +88,13 @@ int main()
             cout << "------11------" << endl;
             cout << "Оклад: " && cin >> firstD;
             cout << "Отработано дней: " && cin >> secondI;
-            cout << a.Salary(firstD, secondI) << endl;
+            a.Salary(firstD, secondI);
             break;
         case 12:
             cout << "------12------" << endl;
             cout << "Продолжительность в мин: " && cin >> firstI;
             cout << "Стоимость минуты в руб: " && cin >> secondD;
-            cout << a.PhoneTalk(firstI, secondD) << endl;
+            a.PhoneTalk(firstI, secondD);
             break;
         case 13:
             cout << "------13------" << endl;
@@ -126,7 +130,37 @@ int main()
             break;
         case 16:
             cout << "------16------" << endl;
-            date1.InitializeByString();
+            cout << "Введите первую дату: " << endl;
+            dateFirst1.InitializeByString();
+            dateFirst1.IsLeapYear();
+            cout << "Введите количество дней которые вы хотите добавить к дате: " && cin >> firstI;
+            dateFirst1.AddDays(firstI);
+            cout << "Введите количество дней которые вы хотите вычесть из даты: " && cin >> secondI;
+            dateFirst1.DeleteDays(secondI);
+
+            cout << endl;
+            cout << "Введите вторую дату: " << endl;
+            dateSecond1.InitializeByString();
+            dateFirst1.Comparsion(dateSecond1);
+            dateFirst1.GetDaysCountBetweenDate(dateSecond1);
+            break;
+        case 17:
+            cout << "------17------" << endl;
+            cout << "Введите первую дату в сек: ";
+            dateFirst2.InitializeBySeconds();
+
+            cout << "Введите количество секунд которые вы хотите добавить к дате: " && cin >> firstI;
+            dateFirst2.AddSeconds(firstI);
+            cout << "Введите количество секунд которые вы хотите вычесть из даты: " && cin >> secondI;
+            dateFirst2.DeleteSeconds(secondI);
+
+            cout << "Первая дата в секундах: " << dateFirst2.GetDateInSeconds() << endl;
+            cout << "Первая дата в минутах: " << dateFirst2.GetDateInMinutes() << endl;
+
+            cout << "Введите вторую дату в сек: ";
+            dateSecond2.InitializeBySeconds();
+
+            dateFirst2.GetSecondsCountBetweenDate(dateSecond2);
             break;
         default:
             cout << "Такой задачи нет." << endl;

@@ -10,8 +10,8 @@ public:
 	void InitializeByString();
 	void InitializeByDate(Date1& date);
 
-	void AddDays();
-	void DeleteDays();
+	void AddDays(int&);
+	void DeleteDays(int&);
 	void IsLeapYear();
 
 	bool CheckValid(unsigned int day, unsigned int month, unsigned int year);
@@ -23,9 +23,10 @@ public:
 	void SetYear(unsigned int);
 	void SetMonth(unsigned int);
 	void SetDay(unsigned int);
+	unsigned int GetDaysCount(Date1&);
 
 	void Comparsion(Date1&);
-	int GetDaysCountBetweenDate(Date1&);
+	void GetDaysCountBetweenDate(Date1&);
 };
 
 inline unsigned int  Date1::GetYear() {

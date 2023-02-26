@@ -4,16 +4,16 @@ class test
 public:
 	double PowDI(double&, int&);
 	double PowDD(double&, double&);
-	double DoubleInt(int&, int&);
-	int MoneyCounter(int&, int&);
-	double PriceOfGood(double&, int&);
-	double Product—alories(int&, double&);
+	void DoubleInt(int&, int&);
+	void MoneyCounter(int&, int&);
+	void PriceOfGood(double&, int&);
+	void Product—alories(int&, double&);
 	bool IsNumberInRange(double&, double&, double&);
 	bool IsNumberInRange2(int&, int&, int&);
-	double HoursToMinutes(int&, int&);
+	void HoursToMinutes(int&, int&);
 	double DistXY(double&, double&);
-	double Salary(double&, int	&);
-	double PhoneTalk(int&, double&);
+	void Salary(double&, int	&);
+	void PhoneTalk(int&, double&);
 	double Multiply(double&, double&, double&);
 	void ChangePointerX(int&);
 	void ChangePointerY(int&);

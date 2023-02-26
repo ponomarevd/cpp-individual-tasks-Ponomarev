@@ -1,4 +1,4 @@
-#include "test.h"
+﻿#include "test.h"
 #include <math.h>
 #include <iostream>
 #include <windows.h>
@@ -14,28 +14,40 @@ double test::PowDD(double &a, double &b)
 	return pow(a, b);
 }
 
-double test::DoubleInt(int &a, int &b)
+void test::DoubleInt(int &a, int &b)
 {
-	return b == 0 ? throw std::overflow_error("������ �� 0 ������!") :  a / b;
+	a && b < 0 && b == 0 ? throw std::overflow_error("Делить на 0 нельзя!") : cout << a / b << endl;
 }
 
-int test::MoneyCounter(int& nominal, int& count)
+void test::MoneyCounter(int& nominal, int& count)
 {
-	int Nominals[6] = {50, 100, 500, 1000, 2000, 5000};
-	for (int nom : Nominals) {
-		if (nom == nominal) return nominal * count;	
+	if (nominal && count >= 0)
+	{
+		int ArrayMoney[6]{ 50,100,500,1000,2000,5000 };
+		for (int key : ArrayMoney)
+			if (key == nominal)
+			{
+				cout << nominal * count << endl;
+				break;
+			}
+			else
+			{
+				cout << "Такого номинала не существует" << endl;
+				break;
+			}
 	}
-	return 0;
+	else
+		cout << "Значения не могут быть отрицательными" << endl;
 }
 
-double test::PriceOfGood(double& goodPrice, int& count)
+void test::PriceOfGood(double& goodPrice, int& count)
 {
-	return goodPrice * count;
+	goodPrice && count > 0 ? cout << goodPrice * count << endl : cout << "Значения не могут быть отрицательными" << endl;
 }
 
-double test::Product�alories(int& calories, double& mass)
+void test::ProductСalories(int& calories, double& mass)
 {
-	return calories * 100 / mass;
+	calories && mass > 0 ? cout << calories * 100 / mass << endl : cout << "Значения не могут быть отрицательными" << endl;
 }
 
 bool test::IsNumberInRange(double& left, double& right, double& num)
@@ -48,9 +60,9 @@ bool test::IsNumberInRange2(int& left, int& right, int& num)
 	return (num >= left && num < right) ? true : false;
 }
 
-double test::HoursToMinutes(int& hours, int& minutes)
+void test::HoursToMinutes(int& hours, int& minutes)
 {
-	return hours * 60 + minutes;
+	hours && minutes > 0 ? cout << hours * 60 + minutes << endl : cout << "Значения не могут быть отрицательными" << endl;
 }
 
 double test::DistXY(double& x, double& y)
@@ -58,14 +70,14 @@ double test::DistXY(double& x, double& y)
 	return sqrt(pow(0 - x, 2) + pow(0 - y, 2));
 }
 
-double test::Salary(double& oklad, int& days)
+void test::Salary(double& oklad, int& days)
 {
-	return oklad / 30 * days;
+	oklad && days > 0 ? cout << oklad / 30 * days << endl : cout << "Значения не могут быть отрицательными" << endl;
 }
 
-double test::PhoneTalk(int& mins, double& price)
+void test::PhoneTalk(int& mins, double& price)
 {
-	return mins * price;
+	mins && price > 0 ? cout << mins * price << endl : cout << "Значения не могут быть отрицательными" << endl;
 }
 
 double test::Multiply(double& first, double& second, double& num)
@@ -79,17 +91,17 @@ double test::Multiply(double& first, double& second, double& num)
 void test::ChangePointerX(int& x)
 {
 	if (x > 0 && x <= GetSystemMetrics(SM_CXSCREEN))
-		cout << "�������� �� X �������� �� " << x << endl;
+		cout << "Значение по X изменено на " << x << endl;
 	else
-		cout << "�������� ��������, ����������� �������." << endl;
+		cout << "Неверное значение, превыщающее границы." << endl;
 }
 
 void test::ChangePointerY(int& y)
 {
 	if (y > 0 && y <= GetSystemMetrics(SM_CYSCREEN))
-		cout << "�������� �� Y �������� �� " << y << endl;
+		cout << "Значение по Y изменено на " << y << endl;
 	else
-		cout << "�������� ��������, ����������� �������." << endl;
+		cout << "Неверное значение, превыщающее границы." << endl;
 }
 
 double test::Multiply2(int& first, int& second, int& num)
