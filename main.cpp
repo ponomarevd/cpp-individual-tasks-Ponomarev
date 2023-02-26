@@ -3,6 +3,10 @@
 #include <windows.h>
 #include "Date1.h"
 #include "Date2.h"
+#include "BankAccount.h"
+#include "Bankomat.h"
+#include "Drobi.h"
+#include "Payment.h"
 using namespace std;
 
 int main()
@@ -13,6 +17,11 @@ int main()
     Date1 dateSecond1;
     Date2 dateFirst2;
     Date2 dateSecond2;
+    BankAccount Ba;
+    Bankomat B;
+    Drobi D1;
+    Drobi D2;
+    Payment pm;
     double firstD, secondD, thirdD;
     int firstI, secondI, thirdI;
     cout << "Введите номер задания: ";
@@ -161,6 +170,57 @@ int main()
             dateSecond2.InitializeBySeconds();
 
             dateFirst2.GetSecondsCountBetweenDate(dateSecond2);
+            break;
+        case 18:
+            cout << "------18------" << endl;
+            char str[50];
+            Ba.Init("Eazy E", 1, 50, 1000.6789);
+            Ba.Display();
+            Ba.ReplaceName("2Pac");
+            Ba.WithDraw(500);
+            Ba.Put(1000);
+            Ba.Display();
+            Ba.Credit();
+            cout << Ba.MoveIn(30.56) << endl;
+            Ba.Display();
+            Ba.FloatToStr(str);
+            break;
+        case 19:
+            cout << "------19------" << endl;
+            unsigned int Id, money1, money2, money3, money4, outMoney;
+            cout << "Введите номер банкомата " && cin >> Id;
+            cout << "Введите кол-во 500 купюр " && cin >> money1;
+            cout << "Введите кол-во 1000 купюр " && cin >> money2;
+            cout << "Введите кол-во 2000 купюр " && cin >> money3;
+            cout << "Введите кол-во 5000 купюр " && cin >> money4;
+            B.Init(Id);
+            B.NumberOfBanknotes(money1, money2, money3, money4);
+            B.Display();
+            cout << "Какое количество денег снять? " && cin >> outMoney;
+            B.WithdrawMoney(outMoney);
+            B.Display();
+            break;
+        case 20:
+            cout << "------20------" << endl;
+            D1.Read("Введите значения 1 дроби: ");
+            D2.Read("Введите значения 2 дроби: ");
+
+            D1.Add(D2);
+            D1.Sub(D2);
+            D1.Mul(D2);
+            D1.Comparison(D2);
+            break;
+        case 21:
+            cout << "------21------" << endl;
+            pm.Init();
+            pm.NachSum();
+            cout << "Начисленная сумма = " << pm.GetNachSum() << endl;
+            pm.UderSum();
+            cout << "Удержанная сумма = " << pm.GetUderSum() << endl;
+            pm.ZP();
+            cout << "Заработная плата = " << pm.GetZP() << endl;
+            pm.Stag();
+            cout << "Стаж = " << pm.GetStag() << endl;
             break;
         default:
             cout << "Такой задачи нет." << endl;

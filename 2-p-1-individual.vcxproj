@@ -128,14 +128,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BankAccount.cpp" />
+    <ClCompile Include="Bankomat.cpp" />
     <ClCompile Include="Date1.cpp" />
     <ClCompile Include="Date2.cpp" />
+    <ClCompile Include="Drobi.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Payment.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BankAccount.h" />
+    <ClInclude Include="Bankomat.h" />
     <ClInclude Include="Date1.h" />
     <ClInclude Include="Date2.h" />
+    <ClInclude Include="Drobi.h" />
+    <ClInclude Include="Payment.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
